@@ -35,8 +35,6 @@ public class JWTTokenProvider {
                 .withIssuer(SecurityConstant.GET_ARRAY_LLC)
                 .withAudience(SecurityConstant.GET_ARRAY_ADMINISTARTION)
                 .withIssuedAt(new Date())
-
-
                 .withSubject(userPrincipal.getUsername())
                 .withArrayClaim(SecurityConstant.AUTHORITIES,claims)
                 .withExpiresAt(new Date(System.currentTimeMillis()+SecurityConstant.EXPIRATION_TIME))

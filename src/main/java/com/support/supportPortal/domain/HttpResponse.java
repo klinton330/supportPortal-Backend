@@ -1,6 +1,9 @@
 package com.support.supportPortal.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.http.HttpStatus;
+
+import java.util.Date;
 
   /*  {
         code:200,
@@ -11,11 +14,13 @@ import org.springframework.http.HttpStatus;
 */
 
 public class HttpResponse {
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "MM-dd-yyyy hh:mm:ss",timezone = "Asia/Kolkata")
+    private Date timeStamp;
     private int httpStatusCode; //200,400,403
     private HttpStatus httpStatus; //Created
     private String reason; //created
     private String message;//own message
+
 
     public HttpResponse(){
 
@@ -25,6 +30,7 @@ public class HttpResponse {
         this.httpStatus = httpStatus;
         this.reason = reason;
         this.message = message;
+        this.timeStamp=new Date();
     }
 
     public int getHttpStatusCode() {
@@ -57,5 +63,13 @@ public class HttpResponse {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    public Date getTimeStamp() {
+        return timeStamp;
     }
 }
