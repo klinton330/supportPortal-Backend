@@ -1,0 +1,24 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/supportPortal
+    password: Chennai@330
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      hibernate:
+        format_sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+
+jwt:
+  secret: hari3030
+
+
+
