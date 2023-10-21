@@ -14,7 +14,7 @@ import java.util.Date;
 */
 
 public class HttpResponse {
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "MM-dd-yyyy hh:mm:ss",timezone = "Asia/Kolkata")
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy hh:mm:ss",timezone = "Asia/Kolkata")
     private Date timeStamp;
     private int httpStatusCode; //200,400,403
     private HttpStatus httpStatus; //Created

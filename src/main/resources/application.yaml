@@ -1,5 +1,8 @@
 server:
   port: 8081
+  #error:
+   # whitelabel:
+    #  enabled: false
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/supportPortal
@@ -15,7 +18,11 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
-
+  #mvc:
+  # throw-exception-if-no-handler-found: true
+  #web:
+   # resources:
+    #  add-mappings: false
 
 jwt:
   secret: hari3030
