@@ -52,7 +52,7 @@ public class ExceptionHandlers implements ErrorController {
     }
     @ExceptionHandler(LockedException.class)
     public ResponseEntity<HttpResponse>lockedException(){
-        return createHttpExceptionResponse(HttpStatus.UNAUTHORIZED,NOT_ENOUGH_PERMISSION);
+        return createHttpExceptionResponse(HttpStatus.UNAUTHORIZED,ACCOUNT_LOCKED);
     }
     @ExceptionHandler(TokenExpiredException.class)
     public ResponseEntity<HttpResponse>tokenexpiredException(TokenExpiredException e){
@@ -77,6 +77,7 @@ public class ExceptionHandlers implements ErrorController {
     }
     @ExceptionHandler(Exception.class)
     public ResponseEntity<HttpResponse> internalServerErrorException(Exception e){
+        e.printStackTrace();
         return createHttpExceptionResponse(HttpStatus.INTERNAL_SERVER_ERROR,INTERNAL_SERVER_ERROR_MSG);
     }
 
