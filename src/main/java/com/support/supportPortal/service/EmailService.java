@@ -7,6 +7,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
+import static com.support.supportPortal.constant.EmailConstant.*;
+
 
 @Service
 public class EmailService {
@@ -14,11 +16,11 @@ public class EmailService {
 
         // Get properties object
         Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.socketFactory.port", "465");
-        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.port", "465");
+        props.put(HOST, HOST_NAME);
+        props.put(SOCKET_FACTORY_PORT, SOCKET_FACTORY_PORT_NO);
+        props.put(SOCKET_FACTORY_CLASS, SOCKET_FACTORY_CLASS_NAME);
+        props.put(SMTP_OAUTH,SMTP_OAUTH_ENABLELD);
+        props.put(SMTP_PORT, SMTP_PORT_NO);
         // get Session
         Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
