@@ -1,7 +1,7 @@
 package com.support.supportPortal.constant;
 
 public class FileConstant {
-    public static final String USER_IMAGE_PATH="/user/image";
+    public static final String USER_IMAGE_PATH="/user/image/";
     public static final String JPG_EXTENTION="jpg";
     public static  final String USER_FOLDER=System.getProperty("user.home")+"/supportportal/user/";
     public static  final String DIRECTORY_CREATED="Created Directory for:";

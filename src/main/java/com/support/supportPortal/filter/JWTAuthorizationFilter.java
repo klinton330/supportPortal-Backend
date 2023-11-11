@@ -40,9 +40,10 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
                   return;
               }
               else{
-                  String token = authorizationHeader.substring(SecurityConstant.TOKEN_PREFIX.length());
+                  String token = authorizationHeader.substring(SecurityConstant.TOKEN_PREFIX.length()).trim();
+                  System.out.println("TOken:"+token);
                   String username = jwtTokenProvider.getSubject(token);
-                  if (jwtTokenProvider.isTokenValid(username, token) && SecurityContextHolder.getContext().getAuthentication() == null) {
+                  if (jwtTokenProvider.isTokenValid(username,token) && SecurityContextHolder.getContext().getAuthentication() == null) {
                       List<GrantedAuthority> authorities = jwtTokenProvider.getAuthorities(token);
                       Authentication authentication = jwtTokenProvider.getAuthentication(username, authorities, request);
                       SecurityContextHolder.getContext().setAuthentication(authentication);

@@ -31,7 +31,6 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import static com.support.supportPortal.constant.FileConstant.*;
-import static com.support.supportPortal.constant.UserConstant.PROFILE_PICTURE_UPDATED;
 import static com.support.supportPortal.constant.UserConstant.USER_DELETED_SUCCESSFULLY;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
 import static org.springframework.http.HttpStatus.OK;
@@ -139,7 +138,7 @@ public class UserController extends ExceptionHandlers {
     }
 
     @GetMapping(path = "/image/profile/{username}",produces = {IMAGE_JPEG_VALUE})
-    public byte[] getTempProfileImage(@PathVariable ("username") String username,@PathVariable("filename")String filename) throws IOException {
+    public byte[] getTempProfileImage(@PathVariable ("username") String username) throws IOException {
         URL url=new URL(TEMP_PROFILE_IMAGE_BASE_URL+username);
         ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
         try(InputStream inputStream=url.openStream()){

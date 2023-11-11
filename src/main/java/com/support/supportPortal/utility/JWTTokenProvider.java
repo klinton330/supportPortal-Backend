@@ -55,7 +55,7 @@ public class JWTTokenProvider {
 
     public boolean isTokenValid(String username,String token){
         JWTVerifier verifier=getJWTVerifier();
-        return StringUtils.isNotEmpty(username)&& isTokenExpired(verifier,token);
+        return StringUtils.isNotEmpty(username)&& !isTokenExpired(verifier,token);
     }
 
     private boolean isTokenExpired(JWTVerifier verifier, String token) {
@@ -81,7 +81,9 @@ public class JWTTokenProvider {
         try{
             Algorithm algorithm=Algorithm.HMAC512(secret);
             jwtVerifier=JWT.require(algorithm)
-                           .withIssuer(SecurityConstant.GET_ARRAY_LLC).build();
+                           .withIssuer(SecurityConstant.GET_ARRAY_LLC)
+                            .build();
+
 
         }catch (JWTVerificationException jwtVerificationException){
                throw new JWTVerificationException(SecurityConstant.TOKEN_CANNOT_BE_VERIFIED);

@@ -130,13 +130,16 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private User validateNewUsernameAndEmail(String currentUsername,String newUsername,String newEmail) throws UsernameExistException, EmailExistException {
         User userByUsername=findUserByUsername(newUsername);
         User userByEmail=findUserByEmail(newEmail);
+
         if(StringUtils.isNotEmpty(currentUsername)){
+
             //Handles the UPDATE USER
             User currentUser=findUserByUsername(currentUsername);
             if( currentUser==null)
                 throw new UsernameNotFoundException(NO_USER_FOUND_BY_USERNAME + " " +currentUsername);
 
-            if(userByUsername!=null && ! currentUser.getId().equals(userByUsername.getUserId()))
+
+            if(userByUsername!=null && ! currentUser.getId().equals(userByUsername.getId()))
                 throw new UsernameExistException(USERNAME_ALREADY_EXISTS);
             if(userByEmail!=null && !currentUser.getId().equals(userByEmail.getId()))
                 throw new EmailExistException(EMAIL_ALREADY_EXISTS);

@@ -168,4 +168,11 @@ public class User implements Serializable {
     public void setNotLocked(boolean notLocked) {
         isNotLocked = notLocked;
     }
+
+ /*   @Override
+    public int hashCode()
+    {
+       long id=this.id;
+       return (int) id;
+    }*/
 }
